@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 
-df = pd.read_parquet("../data/_gt_retrieval.parquet.brotli")
+df = pd.read_parquet("../data/pmg_data.parquet.brotli")
 
 question = df.sample(n=1).iloc[0]['question']
 

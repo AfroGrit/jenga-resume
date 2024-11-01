@@ -35,7 +35,7 @@ def main():
     args = parser.parse_args()
 
     base_url = "http://localhost:5001"
-    parquet_file = "../data/_gt_retrieval.parquet.brotli"
+    parquet_file = "../data/ground_truth.parquet.brotli"
 
     print("Welcome to the interactive PMG Q&A app!")
     print("You can exit the program at any time when prompted.")

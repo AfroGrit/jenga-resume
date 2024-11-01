@@ -3,7 +3,7 @@ import pandas as pd
 import minsearch
 
 
-DATA_PATH = os.getenv("DATA_PATH", "../data/_pmg_sample_clean.parquet.brotli")
+DATA_PATH = os.getenv("DATA_PATH", "../data/pmg_data.parquet.brotli")
 
 def load_index(data_path=DATA_PATH):
     df = pd.read_parquet(data_path)
