@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     environment:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
-      DATA_PATH: "data/_pmg_sample_clean.parquet.brotli"
+      DATA_PATH: "data/pmg_data.parquet.brotli"
     ports:
       - "${APP_PORT:-5001}:5001"
     depends_on:

@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN pip install pipenv
 
-COPY data/_pmg_sample_clean.parquet.brotli data/_pmg_sample_clean.parquet.brotli
+COPY data/pmg_data.parquet.brotli data/pmg_data.parquet.brotli
 COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --deploy --ignore-pipfile --system
