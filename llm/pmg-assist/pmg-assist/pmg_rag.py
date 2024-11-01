@@ -64,10 +64,8 @@ class PromptBuilder:
 
     def __init__(self):
         self.prompt_template = """
-        You emulate a user of our parliament assistant application.
-        Formulate 5 questions this user might ask based on the provided parliamentary record.
-        Make the questions specific to this record. The record should contain the answer to the questions,
-        and the questions should be complete and not too short. Use as few words as possible from the record.
+        You're a politcal analyst. Answer the QUESTION based on the CONTEXT from the PMG database.
+        Use only the facts from the CONTEXT when answering the QUESTION.        
 
         QUESTION: {question}
 
@@ -187,29 +185,6 @@ class LLMHandler:
         )
         return response.choices[0].message.content, response.usage
 
-    # def calculate_openai_cost(self, model, tokens):
-    #     """
-    #     Calculate the OpenAI cost based on the model and token usage.
-
-    #     Args:
-    #         model (str): The model name.
-    #         tokens (dict): Token usage statistics.
-
-    #     Returns:
-    #         float: The calculated cost.
-    #     """
-    #     openai_cost = 0
-    #     if model == "gpt-4o-mini":
-    #         # openai_cost = (
-    #         #     tokens["prompt_tokens"] * 0.00015 + tokens["completion_tokens"] * 0.0006
-    #         # ) / 1000
-            
-    #         openai_cost = (
-    #             tokens.prompt_tokens * 0.00015 + tokens.completion_tokens * 0.0006
-    #         ) / 1000
-    #         # tokens.prompt_tokens * 0.00015 + tokens.completion_tokens * 0.0006
-
-    #     return openai_cost
 
     def calculate_openai_cost(self, model, tokens):
         """
@@ -284,22 +259,6 @@ class RAGSystem:
         openai_cost = openai_cost_rag + openai_cost_eval
         t1 = time()
         took = t1 - t0
-
-        # # Compile final answer data
-        # answer_data = {
-        #     "answer": answer,
-        #     "model_used": model,
-        #     "response_time": took,
-        #     "relevance": relevance.get("Relevance", "UNKNOWN"),
-        #     "relevance_explanation": relevance.get("Explanation", "Failed to parse evaluation"),
-        #     "prompt_tokens": token_stats["prompt_tokens"],
-        #     "completion_tokens": token_stats["completion_tokens"],
-        #     "total_tokens": token_stats["total_tokens"],
-        #     "eval_prompt_tokens": rel_token_stats["prompt_tokens"],
-        #     "eval_completion_tokens": rel_token_stats["completion_tokens"],
-        #     "eval_total_tokens": rel_token_stats["total_tokens"],
-        #     "openai_cost": openai_cost,
-        # }
 
         # Update where you access token_stats and rel_token_stats
         answer_data = {

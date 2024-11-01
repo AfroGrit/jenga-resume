@@ -1,6 +1,6 @@
 import uuid
 from flask import Flask, request, jsonify
-from pmg_rag_oo import RAGSystem
+from pmg_rag import RAGSystem
 import pmg_db
 
 app = Flask(__name__)
