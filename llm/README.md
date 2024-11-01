@@ -1,6 +1,6 @@
-Resume LLM projects
+# Resume LLM projects
 
-# PMG Assistant
+## PMG Assistant
 
 Staying informed with parliament routines is challenging,
 especially for the comon person. Watching TV can be intimidating, and personal
